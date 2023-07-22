@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt') //to hash the passwords
 signup.post('/', async (req, res) => {
     try {
         //to check if user is already existing with given email
-        console.log(User)
+        // console.log(User)
         const userExists = await User.findOne({ email: req.body.email })
         if (userExists) {
             return res.status(409).send({ message: "User already exists" })

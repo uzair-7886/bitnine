@@ -14,7 +14,7 @@ const Signup = () => {
     const [error,setError]=useState("error");
     const [confirmPassword,setConfirmPassword]=useState("")
 
-    // const navigate=useNavigate();  
+    const navigate=useNavigate();  
 
     const handleChange = (e) => {
         setData({...data, [e.target.name]: e.target.value})
@@ -28,7 +28,7 @@ const Signup = () => {
             const url=import.meta.env.VITE_FRONTEND_URI + "/signup";
             // console.log(url)
             const {data:res}=await axios.post(url,data);
-            // navigate("/login")
+            navigate("/login")
             console.log(res.message);
         } catch (error) {
             setError(error.response.data.message);

@@ -3,6 +3,7 @@ const cors =require('cors')
 const connection=require('./db')
 require('dotenv').config();
 const signupRoute=require('./routes/signup')
+const loginRoute=require('./routes/login')
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(express.json()) //without it the server would receive json data as a str
 
 //routes
 app.use('/signup',signupRoute)
+app.use('/login',loginRoute)
 
 connection() //connects with mongodb
 
