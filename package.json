@@ -1,0 +1,16 @@
+{
+  "name": "bitnine-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd Q5/backend && npm install",
+    "start-server": "cd Q5/backend && node app.js",
+    "install-client": "cd Q5/frontend && npm install",
+    "build-client": "cd Q5/frontend && npm run build",
+    "start-client": "cd Q5/frontend && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
