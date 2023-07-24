@@ -29,13 +29,14 @@ const Login = () => {
         localStorage.setItem("token",res.data) //setItem takes two arguments key and value and saves the data (which is the token sent as response from the api) in the local storage of browser so that we may need it latter
         // console.log(localStorage.getItem("token"));
         // navigate("/")
+        setLoading(false)
         window.location="/"
         // console.log(res.message);
-      } catch (error) {
-        setError(error.response.data.message);
-        console.log(error.response.data.message); 
-      }
+    } catch (error) {
       setLoading(false)
+        setError(error.response.data.message);
+        // console.log(error.response.data.message); 
+    }
 }
 
 
