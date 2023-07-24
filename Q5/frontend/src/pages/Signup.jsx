@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 import {Link,useNavigate} from "react-router-dom"
 import agens from '../assets/b_logo.png'
+import { Oval } from 'react-loader-spinner'
 
 const Signup = () => {
     const [data, setData] = useState({
@@ -11,6 +12,8 @@ const Signup = () => {
         email: "",
         password: "",
     });
+
+    const [loading,setLoading]=useState(false)
 
     const [error,setError]=useState("");
     const [confirmPassword,setConfirmPassword]=useState("")
@@ -30,15 +33,18 @@ const Signup = () => {
                 setError("Passwords do not match");
                 return;
             }
+            setLoading(true)
             const url=import.meta.env.VITE_FRONTEND_URI + "/signup";
             // console.log(url)
             const {data:res}=await axios.post(url,data);
-            navigate("https://uzair-bitnine.vercel.app/login")
-            console.log(res.message);
+            
+            navigate("/login")
+            // console.log(res.message);
         } catch (error) {
             setError(error.response.data.message);
-            console.log(error.response.data.message);  
+            // console.log(error.response.data.message);  
         }
+        setLoading(false)
     }
 
         return (
@@ -72,7 +78,20 @@ const Signup = () => {
                     className="px-8 py-2 bg-blue-600 rounded-lg text-white text-md md:text-lg font-semibold hover:text-yellow-400 duration-200 cursor-pointer"
                     disabled={()=>{confirmPassword!=data.password}}
                     >Signup</button>
-                    <p className="text-sm">Already have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
+                    {loading&&<Oval
+  height={20}
+  width={20}
+  color="#0082cb"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel='oval-loading'
+  secondaryColor="#0082cb"
+  strokeWidth={4}
+  strokeWidthSecondary={4}
+
+/>}
+                    <p className="text-sm ">Already have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
                     </div>
                 </form>
                 </div>

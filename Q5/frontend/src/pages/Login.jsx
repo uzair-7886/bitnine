@@ -2,12 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import agens from "../assets/b_logo.png";
+import { Oval } from 'react-loader-spinner'
 
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+  const [loading,setLoading]=useState(false)
 
 //   const navigate = useNavigate();
 
@@ -20,13 +22,15 @@ const Login = () => {
   const handleSubmit=async (ev)=>{
     ev.preventDefault();
     try {
+      setLoading(true)
         const url=import.meta.env.VITE_FRONTEND_URI+"/login";
         const {data:res}=await axios.post(url,data);
         // console.log(res.message);
         localStorage.setItem("token",res.data) //setItem takes two arguments key and value and saves the data (which is the token sent as response from the api) in the local storage of browser so that we may need it latter
         // console.log(localStorage.getItem("token"));
         // navigate("/")
-        window.location="https://uzair-bitnine.vercel.app/"
+        setLoading(false)
+        window.location="/"
         // console.log(res.message);
     } catch (error) {
         setError(error.response.data.message);
@@ -77,14 +81,26 @@ const Login = () => {
                   <p className="text-red-500 text-sm">{error}</p>
                 )}
               </div>
-
+                  <p className="text-xs md:text-sm text-center text-gray-400">Test Email : uzair@bitnine.com Password:internship</p>
               <button
                 type="submit"
                 className="px-8 py-2 bg-blue-600 rounded-lg text-white text-md md:text-lg font-semibold hover:text-yellow-400 duration-200 cursor-pointer"
               >
                 Login
               </button>
+              {loading&&<Oval
+  height={20}
+  width={20}
+  color="#0082cb"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel='oval-loading'
+  secondaryColor="#0082cb"
+  strokeWidth={4}
+  strokeWidthSecondary={4}
 
+/>}
               <p className="text-sm">
                 Don't have an account?{" "}
                 <Link to="/signup" className="text-blue-500">

@@ -14,9 +14,12 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      {user&& <Route path='https://uzair-bitnine.vercel.app/' exact element={<HomePage />}/>} //if token exists and user is authenticated then default page is homepage
-      <Route path='https://uzair-bitnine.vercel.app/login' exact element={<Login/>}/>
-      <Route path='https://uzair-bitnine.vercel.app/signup' exact element={<Signup/>}/>
+
+      {
+        user?<Route path='/' exact element={<HomePage />}/>:<Route path='/login' exact element={<Login/>}/>
+      }
+       //if token exists and user is authenticated then default page is homepage
+      <Route path='/signup' exact element={<Signup/>}/>
     </Routes>
     </BrowserRouter>
     </>

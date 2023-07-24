@@ -49,7 +49,7 @@ const Nav = () => {
     className='bg-blue-800 px-4 md:px-6 hover:text-white py-2 text-sm md:text-md rounded md:ml-2 text-yellow-400 md:my-0 my-2'
     onClick={()=>{
       localStorage.removeItem("token") //remove the token from local storage
-      window.location="https://uzair-bitnine.vercel.app/login" //redirect to login page
+      window.location="/login" //redirect to login page
     }}
     >logout</button>
         </div>
