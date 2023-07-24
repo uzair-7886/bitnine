@@ -15,8 +15,8 @@ const Nav = () => {
     ];
     let [open,setOpen]=useState(false);
   return (
-    <nav className=' w-full fixed top-0 left-0 '>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+    <nav className=' w-full sticky z-[10] top-0 left-0 shadow'>
+      <div className='md:flex items-center justify-between bg-white  py-4 md:px-10 px-7'>
       <div className=' cursor-pointer flex items-center '>
         <img src={logo} alt="logo" className='w-24 md:w-60' />
       </div>
@@ -41,9 +41,19 @@ const Nav = () => {
             </div>
           ))
         }
-        <div className='bg-blue-800 text-white px-3 py-2 md:ml-8  rounded hover:text-yellow-400 md:text-md text-sm font-bold w-24 text-center cursor-pointer '>
+        <div className='flex flex-row md:flex-none space-x-2'>
+        <div className='bg-blue-800 px-4 md:px-6 text-white py-2 text-sm md:text-md rounded md:ml-8 hover:text-yellow-400 md:my-0 my-2 cursor-pointer'>
           Tree Free
         </div>
+        <button
+    className='bg-blue-800 px-4 md:px-6 hover:text-white py-2 text-sm md:text-md rounded md:ml-2 text-yellow-400 md:my-0 my-2'
+    onClick={()=>{
+      localStorage.removeItem("token") //remove the token from local storage
+      window.location="/login" //redirect to login page
+    }}
+    >logout</button>
+        </div>
+        
       </ul>
       </div>
     </nav>
@@ -51,3 +61,4 @@ const Nav = () => {
 }
 
 export default Nav
+
