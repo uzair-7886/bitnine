@@ -33,7 +33,7 @@ const Signup = () => {
             const url=import.meta.env.VITE_FRONTEND_URI + "/signup";
             // console.log(url)
             const {data:res}=await axios.post(url,data);
-            navigate("/login")
+            navigate("https://uzair-bitnine.vercel.app/login")
             console.log(res.message);
         } catch (error) {
             setError(error.response.data.message);
