@@ -8,22 +8,18 @@ import HomePage from './pages/HomePage'
 
 function App() {
 
-  const user=localStorage.getItem("token") //get the token from local storage
+  const user = localStorage.getItem("token") //get the token from local storage
 
   return (
-    <>
     <BrowserRouter>
-    <Routes>
-
-      {
-        user?<Route path='/' exact element={<HomePage />}/>:<Route path='/login' exact element={<Login/>}/>
-      }
-       //if token exists and user is authenticated then default page is homepage
-      <Route path='/signup' exact element={<Signup/>}/>
-    </Routes>
+      <Routes>
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<Signup/>} />
+        <Route path='/' element={user ? <HomePage /> : <Navigate to='/login' />} />
+        {/* If user is authenticated, show HomePage, else navigate to Login */}
+      </Routes>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
