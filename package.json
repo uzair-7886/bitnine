@@ -8,7 +8,7 @@
     "start-server": "cd Q5/backend && node index.js",
     "install-client": "cd Q5/frontend && npm install",
     "build-client": "cd Q5/frontend && npm run build",
-    "start-client": "cd Q5/frontend && npm run start"
+    "start-client": "cd Q5/frontend && npm run "
   },
   "keywords": [],
   "author": "",
