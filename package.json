@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install-server": "cd Q5/backend && npm install",
-    "start-server": "cd Q5/backend && node app.js",
+    "start-server": "cd Q5/backend && node index.js",
     "install-client": "cd Q5/frontend && npm install",
     "build-client": "cd Q5/frontend && npm run build",
     "start-client": "cd Q5/frontend && npm run start"
