@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Digital Clock</title>
-<style>
-#clock {
-  font-size: 48px;
-  text-align: center;
-  background-color: gray;
-  color: white;
-    padding: 5px;
-    width: 300px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    border-radius: 10px;
-}
-</style>
+<title>Question 6</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1 style="text-align: center;padding-bottom: 50px;text-decoration: underline;">Question 6.3</h1>
-<h2 style="text-align: center;padding-bottom: 50px;">Digital Clock</h2>
-<div id="clock"></div>
 
+<div class="container">
+    <h1>Question 6</h1>
+    <h2> Digital Clock</h2>
+    <div id="clock-container">
+        <div id="clock"></div>
+      </div>
+<h2> Palindrome Checker</h2>
+  <div class="form-group">
+    <label for="palindromeInput" class="label">Enter a word or phrase:</label>
+    <input type="text" id="palindromeInput" class="input" >
+    <button onclick="checkPalindrome()" class="button">Check Palindrome</button>
+  </div>
+  <p id="palindromeOutput" class="output"></p>
+  
+  <hr>
+  
+  <h2> Missing Number Checker</h2>
+  <div class="form-group">
+    <label for="missingNumberInput" class="label">Enter comma separated numbers:</label>
+    <input type="text" id="missingNumberInput" class="input">
+    <button onclick="findMissingNumber()" class="button">Find Missing Number</button>
+  </div>
+  <p id="missingNumberOutput" class="output"></p>
+  
+  
+</div>
+
+<script src="question_6_1.js"></script>
+<script src="question_6_2.js"></script>
 <script src="question_6_3.js"></script>
 
 </body>

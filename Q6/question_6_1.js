@@ -18,3 +18,20 @@ function Palindrome(str){
     //if the string is palindrome then we will return the string
     return str;
 }
+
+function checkPalindrome() {
+  const input = document.getElementById("palindromeInput").value;
+  const output = document.getElementById("palindromeOutput");
+
+  const result = Palindrome(input); //calling the above function here
+
+  output.classList.remove("success", "error");
+  output.innerHTML = `The input string ${result === input ? "is" : "is not"} a palindrome. ${
+    result !== input ? `Reversed string: ${result}` : ""
+  }`;
+  if (result === input) {
+    output.classList.add("success");
+  } else {
+    output.classList.add("error");
+  }
+}
