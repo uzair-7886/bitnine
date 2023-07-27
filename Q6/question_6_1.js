@@ -1,6 +1,8 @@
 function Palindrome(str){
     
     //using two pointers technique by initializing one from the start of string and second to the end of string
+
+    //we can also use the method of reversing a string first and then comparing it with the original. But the approach I used is more efficient, if we use two pointers we traverse only half of the string O(n/2)=>O(n). On the other hand if we use reversed string first we would have to traverse the string twice, once for reversing it and once for comparing O(2n)=>O(n) but here we require more memory. In our case the string is reversed only when it is confirm that the string is not palindrome
     let left = 0;
     let right = str.length - 1;
 
